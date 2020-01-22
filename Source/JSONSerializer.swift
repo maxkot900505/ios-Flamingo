@@ -15,10 +15,11 @@ public class JSONSerializer {
         self.decoder = decoder
     }
 
-    public convenience init(dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate, dataDecodingStrategy: JSONDecoder.DataDecodingStrategy = .base64, nonConformingFloatDecodingStrategy: JSONDecoder.NonConformingFloatDecodingStrategy = .throw) {
+    public convenience init(dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate, dataDecodingStrategy: JSONDecoder.DataDecodingStrategy = .base64, nonConformingFloatDecodingStrategy: JSONDecoder.NonConformingFloatDecodingStrategy = .throw, keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = dateDecodingStrategy
         decoder.dataDecodingStrategy = dataDecodingStrategy
+        decoder.keyDecodingStrategy = keyDecodingStrategy
         decoder.nonConformingFloatDecodingStrategy = nonConformingFloatDecodingStrategy
 
         self.init(decoder: decoder)
